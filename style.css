@@ -1,0 +1,295 @@
+
+/* ===== Basic Setup ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 25px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  color: #87365e;
+  background: linear-gradient(135deg, #ffe1ee, #fff0f6, #ffd6e7);
+  overflow-x: hidden;
+}
+
+/* ===== Main Card ===== */
+.card {
+  width: 100%;
+  max-width: 680px;
+  min-height: 80vh;
+  padding: 35px 28px;
+  text-align: center;
+  background: rgba(255, 250, 252, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  box-shadow: 0 15px 50px rgba(208, 91, 145, 0.15);
+  animation: appear 0.7s ease;
+}
+
+section {
+  animation: appear 0.5s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== Headings and Text ===== */
+h1 {
+  margin: 25px 0;
+  color: #df3286;
+  font-size: clamp(26px, 5vw, 42px);
+  line-height: 1.25;
+}
+
+h2 {
+  color: #df3286;
+}
+
+p {
+  color: #9b5074;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.emoji {
+  margin: 20px 0;
+  font-size: 65px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* ===== Buttons ===== */
+button {
+  margin: 8px 4px;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff65a3, #e63888);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(223, 50, 134, 0.18);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(223, 50, 134, 0.25);
+}
+
+button:focus-visible {
+  outline: 3px solid #87365e;
+  outline-offset: 4px;
+}
+
+button.secondary {
+  background: linear-gradient(135deg, #bd80ed, #9556d5);
+}
+
+/* ===== Gift and Cake ===== */
+.gift,
+.cake {
+  margin: 25px auto;
+  font-size: 100px;
+  cursor: pointer;
+  user-select: none;
+  animation: float 2s ease-in-out infinite;
+}
+
+.gift:active,
+.cake:active {
+  transform: scale(0.9);
+}
+
+/* ===== Personal Photo ===== */
+.my-photo {
+  margin: 28px auto;
+  text-align: center;
+}
+
+.my-photo img {
+  display: block;
+  width: 220px;
+  height: 260px;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+  border: 4px solid white;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px rgba(232, 121, 163, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.my-photo img:hover {
+  transform: scale(1.04);
+}
+
+.my-photo h2 {
+  font-size: 23px;
+}
+
+/* ===== Photo Gallery ===== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.photo-card {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: white;
+  color: #87365e;
+  box-shadow: 0 8px 24px rgba(216, 121, 163, 0.2);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.35s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.04);
+}
+
+.photo-card span {
+  display: block;
+  padding: 12px 4px 7px;
+  font-size: 13px;
+}
+
+/* ===== Full-size Photo Viewer ===== */
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+  background: rgba(35, 15, 32, 0.94);
+  color: white;
+}
+
+.photo-viewer img {
+  max-width: 90vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border: 3px solid white;
+  border-radius: 18px;
+}
+
+.photo-viewer p {
+  color: white;
+}
+
+.photo-viewer .close-photo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+}
+
+/* ===== Floating Hearts ===== */
+.heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: 10;
+  pointer-events: none;
+  font-size: 22px;
+  animation: rise 3s linear forwards;
+}
+
+/* ===== Animations ===== */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(25deg);
+  }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 12px 8px;
+  }
+
+  .card {
+    padding: 25px 15px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .emoji {
+    font-size: 55px;
+  }
+
+  .gift,
+  .cake {
+    font-size: 80px;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card img {
+    height: 280px;
+  }
+
+  button {
+    max-width: 100%;
+  }
+}

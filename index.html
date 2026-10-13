@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Birthday Surprise 🎂</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main class="card">
+
+    <!-- Welcome Page -->
+    <section id="welcome">
+      <div class="emoji">🎂</div>
+
+      <h1>Happy Birthday, Azizul! 🎂</h1>
+      <p>A special birthday surprise made by Azizul Islam. 💗</p>
+      <p>Someone special deserves a special day. 💗</p>
+
+      <button onclick="startSurprise()">
+        Open Your Surprise ✨
+      </button>
+
+      <button class="secondary" onclick="showGallery()">
+        View My Gallery 📸
+      </button>
+
+      <!-- Welcome Photo -->
+      <div class="my-photo">
+        <img src="image/aziz.jpg" alt="My Photo">
+        <h2>My Special Moments 💖</h2>
+      </div>
+    </section>
+
+    <!-- Gift Page -->
+    <section id="gifts" class="hidden">
+      <div class="emoji">🎁</div>
+      <h1>Your Gifts!</h1>
+      <p>Tap the gift box to open your surprise.</p>
+
+      <div
+        class="gift"
+        onclick="openGift()"
+        role="button"
+        tabindex="0"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGift()}"
+        aria-label="Open birthday gift"
+      >🎁</div>
+
+      <p id="giftText" class="hidden">
+        You are amazing! Keep smiling. 💖
+      </p>
+
+      <button onclick="showCake()">
+        Next: Birthday Cake 🎂
+      </button>
+    </section>
+
+    <!-- Cake Page -->
+    <section id="cakePage" class="hidden">
+      <div class="cake">🎂</div>
+      <h1>Make a Wish!</h1>
+      <p>May your day be filled with love and happiness.</p>
+
+      <button onclick="makeWish()">
+        Blow the Candles 🕯️
+      </button>
+
+      <p id="wishText" class="hidden">
+        ✨ Wish sent! May your dreams come true! ✨
+      </p>
+
+      <button class="secondary" onclick="showLetter()">
+        Read Your Letter 💌
+      </button>
+    </section>
+
+    <!-- Birthday Letter -->
+    <section id="letterPage" class="hidden">
+      <div class="emoji">💌</div>
+
+      <h1>With Love, Azizul Islam 💌</h1>
+
+      <p id="message">
+        May your new year of life bring you beautiful memories,
+        endless smiles, and lots of wonderful surprises.
+
+        Stay happy and keep shining! 💗
+      </p>
+
+      <p>Made with ❤️ just for you.</p>
+
+      <button onclick="restart()">
+        Replay Surprise ↻
+      </button>
+
+      <button class="secondary" onclick="showGallery()">
+        View My Gallery 📸
+      </button>
+    </section>
+
+    <!-- My Photo Gallery -->
+    <section id="galleryPage" class="hidden">
+      <div class="emoji">📸</div>
+      <h1>My Photo Gallery</h1>
+      <p>A collection of my favorite moments. 💗</p>
+
+      
+<div class="photo-grid">
+
+  <button class="photo-card"
+    onclick="openPhoto('image/aziz.jpg')">
+    <img src="image/aziz.jpg" alt="My Photo">
+    <span>My Favorite Photo 💖</span>
+  </button>
+
+  <button class="photo-card"
+    onclick="openPhoto('image/photo2.jpg')">
+    <img src="image/photo2.jpg" alt="Photo 2">
+    <span>Beautiful Memories 💕</span>
+  </button>
+
+  <button class="photo-card"
+    onclick="openPhoto('image/photo3.jpeg')">
+    <img src="image/photo3.jpeg" alt="Photo 3">
+    <span>Special Moments 🌸</span>
+  </button>
+
+  <button class="photo-card"
+    onclick="openPhoto('image/photo4.jpg')">
+    <img src="image/photo4.jpg" alt="Photo 4">
+    <span>Memories Forever 💗</span>
+  </button>
+
+</div>
+
+
+      <button class="secondary" onclick="showLetter()">
+        Back to Birthday Letter 💌
+      </button>
+
+      <button onclick="restart()">
+        Back to Start ↻
+      </button>
+    </section>
+
+    <!-- Full-size Photo Viewer -->
+    <div
+      id="photoViewer"
+      class="photo-viewer hidden"
+      onclick="closePhoto()"
+    >
+      <button
+        class="close-photo"
+        onclick="event.stopPropagation(); closePhoto()"
+        aria-label="Close photo"
+      >✕</button>
+
+      <img id="largePhoto" src="" alt="Large photo">
+      <p>Click anywhere to close</p>
+    </div>
+
+  </main>
+</body>
+</html>
